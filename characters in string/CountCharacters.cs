@@ -24,23 +24,8 @@ namespace C_Sharp_count_characters_in_string
             str = Console.ReadLine();
 
 
-            //count words and counts punctuations
-            while (a <= str.Length - 1)
-            {
-                /*
-                if(str[a]==' ') 
-                {
-                   words++;
-                }
-
-                else */
-                if (str[a] == '!' || str[a] == '.' || str[a] == ',' || str[a] == '?' || str[a] == ':' || str[a] == ';' || str[a] == '/' || str[a] == '-')
-                {
-                    punctuations++;
-                }
-                a++;
-            }
-
+            //logic
+            //reads each character [variable x] in the string [str] and checks if...
             foreach (char x in str)
             {
                 if (Char.IsDigit(x))
@@ -49,10 +34,11 @@ namespace C_Sharp_count_characters_in_string
                     letters++;
                 else if (Char.IsWhiteSpace(x))
                     words++;
-
-
+                else if (Char.IsPunctuation(x))
+                    punctuations++;
             }
 
+            //output
             Console.WriteLine($"Number of words: {words}");
             Console.WriteLine($"Number of letters: {letters}");
             Console.WriteLine($"Number of digits: {digits}");
